@@ -95,14 +95,22 @@
                (segment-match pattern inp bdings (inc pos))
                b2))))))))
 
+(defn process-input
+  [inp]
+  {:input inp
+   :tokens (tokenize inp)
+   :question? (.endsWith inp "?")})
+
 (defn use-eliza-rules
   [inp]
-  (some (fn [[k v]]
-          (let [result (pattern-match
-                        (tokenize k)
-                        (tokenize inp))]
-          ;;  (println "Result:" result)
-            (when result
-              (rand-nth v)
-              )))
-        eliza-rules))
+  (let [inp-map (process-input inp)]
+    (some (fn [[k v]]
+            (let [result (pattern-match (tokenize k) (:tokens inp-map))]
+              (when result
+                (let [ret (rand-nth v)]
+                  (println "Result:" ret)
+                  (println "k:" k ":v:" v)
+                  (clojure.string/replace ret #"\?y" (result "y"))
+                  )
+                )))
+          eliza-rules)))

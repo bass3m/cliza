@@ -2,22 +2,46 @@
 
 (def eliza-rules
   {"?*x hello ?*y" ["How do you do. Please state your problem."]
-   "?*x I want ?*y" ["What would it mean if you got ?y"
-                     "Why do you want ?y"
-                     "Suppose you got ?y soon"]
-   "?*x if ?*y" ["Do you really think its likely that ?y"
-                 "Do you wish that ?y"
-                 "What do you think about ?y"
-                 "Really -- if ?y"]
+   "?*x I want ?*y" ["What would it mean if you got %y"
+                     "Why do you want %y ?"
+                     "Suppose you got %y soon"]
+   "?*x if ?*y" ["Do you really think its likely that %y"
+                 "Do you wish that %y"
+                 "What do you think about %y"
+                 "Really -- if %y"]
    "?*x no ?*y" ["Why not?"
                  "You are being a bit negative"
                  "Are you saying NO just to be negative?"]
    "?*x I was ?*y" ["Were you really?"
-                    "Perhaps I already knew you were ?y"
-                    "Why do you tell me you were ?y now?"]
-   "?*x I feel ?*y" ["Do you often feel ?y ?"]
+                    "Perhaps I already knew you were %y"
+                    "Why do you tell me you were %y now?"]
+   "?*x I feel ?*y" ["Do you often feel %y ?"]
    "?*x I felt ?*y" ["What other feelings do you have ?"]
    })
+
+(def dflt-question-resps ["I have no idea."
+                          "I wish I knew."
+                          "I haven't got a clue."])
+
+(def dflt-resps ["Very interesting"
+                 "Now you're just talking nonsense!"
+                 "Have some sense, man!"
+                 "I am not sure I understand you fully"
+                 "What does that suggest to you?"
+                 "Please continue"
+                 "Go on"
+                 "Do you feel strongly about that?"
+                 "I feel like I've heard that before"
+                 "I don't know much about that."
+                 "I'm no expert on that."
+                 "I don't have much to say about that."
+                 "Tell me more?"
+                 "Yes .. and?"
+                 "And then what?"
+                 "Mmkay."
+                 "What makes you say that?"
+                 "Aaaaah."
+                 "Sure."])
 
 (defn tokenize [inp]
   (re-seq #"(?:[a-z0-9*?]|')+" (clojure.string/lower-case inp)))
@@ -43,7 +67,7 @@
   (when-let [patt (first pattern)]
     (and (string? patt)
          (= (count patt) 3)
-         (.startsWith (java.lang.String. patt) "?*"))))
+         (.startsWith patt "?*"))))
 
 (defn variable-match
   [v inp bdings]
@@ -72,16 +96,14 @@
 (defn position
   ([st sub] (position st sub 0))
   ([st sub start]
-   (.indexOf (java.lang.String. st) sub start)))
+   (.indexOf st sub start)))
 
 (defn segment-match
   ([pattern inp bdings] (segment-match pattern inp bdings 0))
   ([pattern inp bdings start]
-   ;;(println "Seg: pattern" pattern ":inp:" inp ":b:" bdings ":st:" start)
    (let [joined-inp (clojure.string/join " " inp)
          v (second (re-find #"^\?\*(.)$" (first pattern)))
          pat (rest pattern)]
-     ;; (println "V:" v ":pat:" pat)
      (if (empty? pat)
        (variable-match v joined-inp bdings)
        (let [pos (position joined-inp (first pat) start)]
@@ -101,16 +123,35 @@
    :tokens (tokenize inp)
    :question? (.endsWith inp "?")})
 
+(defn process-output
+  [bindings ret]
+  (reduce (fn [acc [k v]]
+            (println "Fn: acc:" acc ":k:" k ":v:" v)
+            (clojure.string/replace acc (re-pattern (str "%" k)) v))
+          ret bindings))
+
+(defn match-rule
+  [inp-map [k v :as rule]]
+  (let [result (pattern-match (tokenize k) (:tokens inp-map))]
+    ;; result is bindings
+    (when result
+      (let [ret (rand-nth v)]
+        (println "Bindings:" result)
+        (println "Rand Ret:" ret)
+        (println "k:" k ":v:" v)
+        (process-output result ret)))))
+
+
 (defn use-eliza-rules
   [inp]
   (let [inp-map (process-input inp)]
-    (some (fn [[k v]]
-            (let [result (pattern-match (tokenize k) (:tokens inp-map))]
-              (when result
-                (let [ret (rand-nth v)]
-                  (println "Result:" ret)
-                  (println "k:" k ":v:" v)
-                  (clojure.string/replace ret #"\?y" (result "y"))
-                  )
-                )))
-          eliza-rules)))
+    (some (partial match-rule inp-map) eliza-rules)))
+
+(defn chat-loop []
+  (loop []
+    (print "eliza> ")
+    (flush)
+    (when-let [input (not-empty (read-line))]
+      (println (use-eliza-rules (clojure.string/trim input)))
+      ;; we can check for "goodbye" like the original Eliza
+      (recur))))

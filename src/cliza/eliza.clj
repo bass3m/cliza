@@ -17,6 +17,21 @@
                     "Why do you tell me you were %y now?"]
    "?*x I feel ?*y" ["Do you often feel %y ?"]
    "?*x I felt ?*y" ["What other feelings do you have ?"]
+   "?*x sorry ?*y" ["Please don't apologise."
+                    "Apologies are not necessary."]
+   "?*x i remember ?*y" ["Do you often think of %y ?"
+                         "Does thinking of %y bring anything else to mind ?"
+                         "What else do you recollect ?"
+                         "Why do you recollect %y just now ?"
+                         "What in the present situation reminds you of %y ?"
+                         "What is the connection between me and %y ?"]
+   "?*x do you remember ?*y" ["Did you think I would forget %y ?"
+                              "Why do you think I should recall %y now ?"
+                              "What about %y ?"
+                              "You mentioned %y ?"]
+   "?*x i dreamed ?*y" ["Really, %y ?"
+                        "Have you ever fantasized %y while you were awake ?"
+                        "Have you ever dreamed %y before ?"]
    })
 
 (def dflt-question-resps ["I have no idea."
@@ -141,11 +156,16 @@
         (println "k:" k ":v:" v)
         (process-output result ret)))))
 
+;; transform synonyms before matching rules
 
 (defn use-eliza-rules
   [inp]
-  (let [inp-map (process-input inp)]
-    (some (partial match-rule inp-map) eliza-rules)))
+  (let [inp-map (process-input inp)
+        result (some (partial match-rule inp-map) eliza-rules)]
+    (or result
+        (if (:question? inp-map)
+          (rand-nth dflt-question-resps)
+          (rand-nth dflt-resps)))))
 
 (defn chat-loop []
   (loop []

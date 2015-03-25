@@ -1,97 +1,18 @@
-(ns cliza.eliza)
-
-(def eliza-rules
-  {"?*x hello ?*y"
-   ["How do you do. Please state your problem."]
-   "?*x I want ?*y"
-   ["What would it mean if you got %y"
-    "Why do you want %y ?"
-    "Suppose you got %y soon"]
-   "?*x if ?*y"
-   ["Do you really think its likely that %y"
-    "Do you wish that %y"
-    "What do you think about %y"
-    "Really -- if %y"]
-   "?*x no ?*y"
-   ["Why not?"
-    "You are being a bit negative"
-    "Are you saying NO just to be negative?"]
-   "?*x I was ?*y"
-   ["Were you really?"
-    "Perhaps I already knew you were %y"
-    "Why do you tell me you were %y now?"]
-   "?*x I feel ?*y"
-   ["Do you often feel %y ?"]
-   "?*x I felt ?*y"
-   ["What other feelings do you have ?"]
-   "?*x sorry ?*y"
-   ["Please don't apologise."
-    "Apologies are not necessary."]
-   "?*x i remember ?*y"
-   ["Do you often think of %y ?"
-    "Does thinking of %y bring anything else to mind ?"
-    "What else do you recollect ?"
-    "Why do you recollect %y just now ?"
-    "What in the present situation reminds you of %y ?"
-    "What is the connection between me and %y ?"]
-   "?*x do you remember ?*y"
-   ["Did you think I would forget %y ?"
-    "Why do you think I should recall %y now ?"
-    "What about %y ?"
-    "You mentioned %y ?"]
-   "?*x i dreamed ?*y"
-   ["Really, %y ?"
-    "Have you ever fantasized %y while you were awake ?"
-    "Have you ever dreamed %y before ?"]
-   "?*x dream ?*y"
-   ["What does that dream suggest to you ?"
-    "Do you dream often ?"
-    "What persons appear in your dreams ?"
-    "Do you believe that dreams have something to do with your problems ?"]
-   "?*x perhaps ?*y"
-   ["You don't seem quite certain."
-    "Why the uncertain tone ?"
-    "Can't you be more positive ?"
-    "You aren't sure ?"
-    "Don't you know ?"]
-   })
-
-(def dflt-question-resps ["I have no idea."
-                          "I wish I knew."
-                          "I haven't got a clue."])
-
-(def dflt-resps ["Very interesting"
-                 "Now you're just talking nonsense!"
-                 "Have some sense, man!"
-                 "I am not sure I understand you fully"
-                 "What does that suggest to you?"
-                 "Please continue"
-                 "Go on"
-                 "Do you feel strongly about that?"
-                 "I feel like I've heard that before"
-                 "I don't know much about that."
-                 "I'm no expert on that."
-                 "I don't have much to say about that."
-                 "Tell me more?"
-                 "Yes .. and?"
-                 "And then what?"
-                 "Mmkay."
-                 "What makes you say that?"
-                 "Aaaaah."
-                 "Sure."])
+(ns cliza.eliza
+  (:require [cliza.rules :as r]))
 
 (defn tokenize [inp]
-  (re-seq #"(?:[a-z0-9*?]|')+" (clojure.string/lower-case inp)))
+  (re-seq #"(?:[a-z0-9]|\?.|\?\*.|')+" (clojure.string/lower-case inp)))
 
 (defn switch-viewpoint
   [inp]
-  (replace {"i" "you"
-            "you" "i"
-            "me" "you"
-            "my" "your"
-            "are" "am"
-            "am" "are"}
-           (cond-> inp (string? inp) tokenize)))
+  (clojure.string/join " " (replace {"i" "you"
+                                     "you" "i"
+                                     "me" "you"
+                                     "my" "your"
+                                     "are" "am"
+                                     "am" "are"}
+                                    (cond-> inp (string? inp) tokenize))))
 
 (defn variable?
   "Variables have form : ?X"
@@ -154,17 +75,24 @@
                (segment-match pattern inp bdings (inc pos))
                b2))))))))
 
+(defn synonym-of
+  [word]
+  (some (fn [[k v]] (when (contains? v word) k)) (r/synonyms)))
+
+;; probably use something like the reduce below for abbrev and synonyms
 (defn process-input
   [inp]
   {:input inp
-   :tokens (tokenize inp)
+   :tokens (map (fn [w] (or (synonym-of w) w)) (tokenize inp))
    :question? (.endsWith inp "?")})
 
 (defn process-output
   [bindings ret]
   (reduce (fn [acc [k v]]
             (println "Fn: acc:" acc ":k:" k ":v:" v)
-            (clojure.string/replace acc (re-pattern (str "%" k)) v))
+            (clojure.string/replace acc
+                                    (re-pattern (str "%" k))
+                                    (switch-viewpoint v)))
           ret bindings))
 
 (defn match-rule
@@ -174,8 +102,6 @@
     (when result
       (let [ret (rand-nth v)]
         (println "Bindings:" result)
-        (println "Rand Ret:" ret)
-        (println "k:" k ":v:" v)
         (process-output result ret)))))
 
 ;; transform synonyms before matching rules
@@ -183,11 +109,12 @@
 (defn use-eliza-rules
   [inp]
   (let [inp-map (process-input inp)
-        result (some (partial match-rule inp-map) eliza-rules)]
+        result (some (partial match-rule inp-map) (r/eliza-rules))]
+    (println "inp map:" inp-map)
     (or result
         (if (:question? inp-map)
-          (rand-nth dflt-question-resps)
-          (rand-nth dflt-resps)))))
+          (rand-nth r/dflt-question-resps)
+          (rand-nth r/dflt-resps)))))
 
 (defn chat-loop []
   (loop []

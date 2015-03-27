@@ -4,12 +4,20 @@
 (defn tokenize [inp]
   (re-seq #"(?:[a-z0-9]|\?.|\?\*.|')+" (clojure.string/lower-case inp)))
 
+;; need a preprocess to convert i'm to i am etc..
+
 (defn switch-viewpoint
   [inp]
   (clojure.string/join " " (replace {"i" "you"
-                                     "you" "i"
+                                     "i'm" "you are"
+                                     "you" "me"
+                                     "your" "my"
+                                     "yourself" "myself"
+                                     "yours" "mine"
+                                     "were" "was"
                                      "me" "you"
                                      "my" "your"
+                                     "myself" "yourself"
                                      "are" "am"
                                      "am" "are"}
                                     (cond-> inp (string? inp) tokenize))))
@@ -75,43 +83,86 @@
                (segment-match pattern inp bdings (inc pos))
                b2))))))))
 
-(defn synonym-of
-  [word]
-  (some (fn [[k v]] (when (contains? v word) k)) (r/synonyms)))
+(defn replace-abbrevs
+  [tokens]
+  (replace {"dont" "don't"
+            "cant" "can't"
+            "recollect" "remember"
+            "recall" "remember"
+            "maybe" "perhaps"
+            "certainly" "yes"
+            "machine" "computer"
+            "computers" "computer"}
+           tokens))
 
-;; probably use something like the reduce below for abbrev and synonyms
+(defn synonym-of
+  "return synonym and original word as a vector"
+  [word]
+  (some (fn [[k v]] (when (contains? v word) [k word])) (r/synonyms)))
+
 (defn process-input
   [inp]
-  {:input inp
-   :tokens (map (fn [w] (or (synonym-of w) w)) (tokenize inp))
-   :question? (.endsWith inp "?")})
+  (let [tokens (tokenize inp)
+        synms (map (fn [w] (synonym-of w)) tokens)]
+    {:input inp
+     :synonym (first (remove nil? synms))
+     :tokens (map (fn [[s w] t] (or s t)) synms tokens)
+     :question? (.endsWith inp "?")}))
 
 (defn process-output
   [bindings ret]
-  (reduce (fn [acc [k v]]
-            (println "Fn: acc:" acc ":k:" k ":v:" v)
-            (clojure.string/replace acc
-                                    (re-pattern (str "%" k))
-                                    (switch-viewpoint v)))
-          ret bindings))
+  (let [ret-str (reduce (fn [acc [k v]]
+                          (clojure.string/replace acc
+                                                  (re-pattern (str "%" k))
+                                                  (switch-viewpoint v)))
+                        ret bindings)]
+    ret-str))
+
+(defn process-rule
+  [bindings [k v :as rule]]
+  (process-output bindings (rand-nth (:patterns v))))
+
+(defn process-rule
+  [bindings [k v :as rule]]
+  (-> bindings
+      (process-output (rand-nth (:patterns v)))
+      (clojure.string/replace #"\s+" " ")))
 
 (defn match-rule
   [inp-map [k v :as rule]]
-  (let [result (pattern-match (tokenize k) (:tokens inp-map))]
-    ;; result is bindings
-    (when result
-      (let [ret (rand-nth v)]
-        (println "Bindings:" result)
-        (process-output result ret)))))
+  (pattern-match (tokenize k) (:tokens inp-map)))
 
-;; transform synonyms before matching rules
+(defn process-synonyms
+  "the synonym is the second entry in the synonym entry of map
+  marked by %SYN is patterns"
+  [inp-map out-str]
+  (clojure.string/replace out-str #"%SYN" (second (:synonym inp-map))))
+
+(defn best-match
+  [matches]
+  (reduce
+   (fn [acc x]
+     (cond
+       (> (:weight x) (:weight acc)) x
+       (and (= (:weight x)(:weight acc))
+            (> (-> x :bindings vals clojure.string/join count)
+               (-> acc :bindings vals clojure.string/join count))) x
+               :else acc))
+   matches))
 
 (defn use-eliza-rules
   [inp]
   (let [inp-map (process-input inp)
-        result (some (partial match-rule inp-map) (r/eliza-rules))]
-    (println "inp map:" inp-map)
-    (or result
+        result (for [r (r/eliza-rules)
+                     :let [bindings (match-rule inp-map r)]
+                     :when bindings]
+                 {:bindings bindings
+                  :weight (-> r second :weight)
+                  :out-str (process-rule bindings r)})]
+    (or (and (not-empty result) (->> result
+                                     best-match
+                                     :out-str
+                                     (process-synonyms inp-map)))
         (if (:question? inp-map)
           (rand-nth r/dflt-question-resps)
           (rand-nth r/dflt-resps)))))

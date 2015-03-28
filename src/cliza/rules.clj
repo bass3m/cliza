@@ -97,8 +97,11 @@
      "Do you dream often ?"
      "What persons appear in your dreams ?"
      "Do you believe that dreams have something to do with your problems?"]}
-   ;; "?*x dream about ?*y"
-   ;; ["How do you feel about %y in reality?"]
+
+    "?*x dream about ?*y"
+   {:weight 3
+    :patterns
+    ["How do you feel about %y in reality?"]}
 
    "?*x sorry ?*y"
    {:weight 0
@@ -150,7 +153,7 @@
    {:weight 0
     :patterns
     ["Who else in your family %y"
-     "Tell me more about your family"]}
+     "Tell me more about your mother"]}
 
    "?*x my father ?*y"
    {:weight 0
@@ -159,12 +162,13 @@
      "Does he influence you strongly?"
      "What else comes to mind when you think of your father?"]}
 
-   "?*x my family ?*y"
+   "?*x my ?*y family ?*z"
    {:weight 0
     :patterns
-    ["Tell me more about your family"
-     "Does he influence you strongly?"
-     "What else comes to mind when you think of your father?"]}
+    ["Tell me more about your family."
+     "Who else in your family %z?"
+     "Your %SYN?"
+     "What else comes to mind when you think of your %SYN?"]}
 
    "?*x i am glad ?*y"
    {:weight 3
@@ -270,9 +274,9 @@
    "?*x i ?*y"
    {:weight 0
     :patterns
-    ["You say %xyou %y?"
-     "Why do you say %xyou %y?"
-     "Do you say %xyou %y for some special reason?"
+    ["You say %x you %y?"
+     "Why do you say %x you %y?"
+     "Do you say %x you %y for some special reason?"
      "Can you elaborate on that?"
      "That's quite interesting."]}
 
@@ -375,7 +379,7 @@
 (defn synonyms []
   {"can't" #{"cannot"}
    "glad" #{"elated" "better" "happy"}
-   "feel" #{"think" "believe" "wish"}
+   "feel" #{"think" "believe" "wish" "belief"}
    "want" #{"need" "desire"}
    "sad" #{"unhappy" "depressed" "sick"}
    "family" #{"family" "mother" "mom" "father" "dad"

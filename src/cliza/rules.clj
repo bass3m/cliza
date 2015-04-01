@@ -239,6 +239,20 @@
      "What other reasons might 0 there be?"
      "Does that reason seem to explain anything else?"]}
 
+   "?*x can you ?*y"
+   {:weight 0
+    :patterns
+    ["You believe I can %y don't you?"
+     "You want me to be able to %y"
+     "Perhaps you would like to be able to %y yourself."]}
+
+   "?*x can i ?*y"
+   {:weight 0
+    :patterns
+    ["Whether or not you can %y depends on you more than me."
+     "Do you want to be able to %y?"
+     "Perhaps you don't want to %y"]}
+
    "?*x were you ?*y"
    {:weight 0
     :patterns

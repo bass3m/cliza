@@ -314,11 +314,17 @@
     ["Can you be more specific?"]}
 
    "?*x everyone ?*y"
-   {:weight 0
+   {:weight 2
     :patterns
-    ["surely not everyone"
-     "Can you think of anyone in particular?"
-     "Who for example?"
+    ["Can you think of anyone in particular?"
+     "Realy, %SYN?"
+     "Surely not %SYN"
+     "Who, for example?"
+     "Are you thinking of a very special person?"
+     "Who, may I ask?"
+     "Someone special perhaps?"
+     "You have a particular person in mind, don't you?"
+     "Who do you think you're talking about?"
      "You are thinking of a special person"]}
 
    "?*x always ?*y"
@@ -395,6 +401,7 @@
    "glad" #{"elated" "better" "happy"}
    "feel" #{"think" "believe" "wish" "belief"}
    "want" #{"need" "desire"}
+   "everyone" #{"noone" "everybody" "nobody"}
    "sad" #{"unhappy" "depressed" "sick"}
    "family" #{"family" "mother" "mom" "father" "dad"
               "sister" "brother" "wife" "children" "child"

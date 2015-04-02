@@ -342,6 +342,10 @@
      "Does that question interest you?"
      "What is it you really want to know?"
      "What do you think?"
+     "Are such questions much on your mind?"
+     "What answer would please you most?"
+     "Have you asked such questions before?"
+     "Have you asked anyone else?"
      "What comes to your mind when you ask that?"]}
 
    "?*x your ?*y"

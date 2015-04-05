@@ -1,5 +1,5 @@
 # cliza
-Eliza (of PAIP fame) in Clojure
+Eliza (of PAIP fame) in Clojure.
 
 ### What is Eliza ?
 Eliza is a chatbot originally developed by MIT professor Joseph Weizenbaum in 1966.
@@ -7,7 +7,7 @@ Eliza emulates a Rogerian psychoanalyst. Rogerians are "nondirective", they try 
 
 ### How to use ?
 
-You start using eliza by invoking the ```chat-loop``` function, you terminate by entering an empty line.
+You start using eliza by invoking the ```chat-loop``` function, you can terminate your eliza session by entering an empty line.
 Here's an example of using eliza from the repl.
 
 ```

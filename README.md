@@ -1,5 +1,5 @@
 # cliza
-Eliza (of PAIP fame) in Clojure.
+Eliza, of Paradigms of Artificial Intelligence Programmming (PAIP) fame, in Clojure.
 
 ### What is Eliza ?
 Eliza is a chatbot originally developed by MIT professor Joseph Weizenbaum in 1966.
@@ -32,3 +32,7 @@ eliza>
 nil
 cliza.eliza=>
 ```
+
+### Adding patterns
+
+cliza tries to adhere to a similar specification as the Lisp implemention in PAIP.

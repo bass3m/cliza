@@ -150,7 +150,7 @@
                :else acc))
    matches))
 
-(defn use-eliza-rules
+(defn eliza
   [inp]
   (let [inp-map (process-input inp)
         result (for [r (r/eliza-rules)
@@ -172,6 +172,6 @@
     (print "eliza> ")
     (flush)
     (when-let [input (not-empty (read-line))]
-      (println (use-eliza-rules (clojure.string/trim input)))
+      (println (eliza (clojure.string/trim input)))
       ;; we can check for "goodbye" like the original Eliza
       (recur))))

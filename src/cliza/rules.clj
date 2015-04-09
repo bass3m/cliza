@@ -118,6 +118,15 @@
      "You aren't sure?"
      "Don't you know?"]}
 
+   "?*x machine ?*y"
+   {:weight 50
+    :patterns
+    ["Why do you mention machines?"
+     "What do you think machines have to do with your problem?"
+     "Don't you think machines can help people?"
+     "What about machines worrys you?"
+     "What do you think about machines?"]}
+
    "?*x computer ?*y"
    {:weight 50
     :patterns

@@ -137,6 +137,13 @@
      "What about machines worrys you?"
      "What do you think about machines?"]}
 
+   "?*x drugs ?*y"
+   {:weight 50
+    :patterns
+    ["do you use (// found) often?"
+     "are you addicted to (// found)?"
+		 "maybe you should try to quit using (// found)"]}
+
    "?*x name ?*y"
    {:weight 15
     :patterns

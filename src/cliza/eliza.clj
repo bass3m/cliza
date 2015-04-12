@@ -175,3 +175,7 @@
       (println (eliza (clojure.string/trim input)))
       ;; we can check for "goodbye" like the original Eliza
       (recur))))
+
+(defn -main []
+  (println "Starting Eliza")
+  (chat-loop))

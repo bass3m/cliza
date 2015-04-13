@@ -98,7 +98,7 @@
      "What persons appear in your dreams ?"
      "Do you believe that dreams have something to do with your problems?"]}
 
-    "?*x dream about ?*y"
+   "?*x dream about ?*y"
    {:weight 3
     :patterns
     ["How do you feel about %y in reality?"]}
@@ -140,9 +140,9 @@
    "?*x drugs ?*y"
    {:weight 50
     :patterns
-    ["do you use (// found) often?"
-     "are you addicted to (// found)?"
-		 "maybe you should try to quit using (// found)"]}
+    ["do you use drugs often?"
+     "are you addicted to drugs?"
+     "maybe you should try to quit using drugs."]}
 
    "?*x name ?*y"
    {:weight 15
@@ -373,6 +373,16 @@
      "What makes you think of my %y?"
      "Do you want my %y?"]}
 
+   "?*x swear ?*y"
+   {:weight 10
+    :patterns
+    ["Does it make you feel strong to use that kind of language?"
+     "Are you venting your feelings now?"
+     "Are you angry?"
+     "Does this topic make you feel angry?"
+     "Is something making you feel angry?"
+     "Does using that kind of language make you feel better?"]}
+
    "?*x my boss ?*y"
    {:weight 0
     :patterns
@@ -423,6 +433,7 @@
    "want" #{"need" "desire"}
    "everyone" #{"noone" "everybody" "nobody"}
    "sad" #{"unhappy" "depressed" "sick"}
+   "swear" #{"fuck" "fucker" "shit" "damn"}
    "family" #{"family" "mother" "mom" "father" "dad"
               "sister" "brother" "wife" "children" "child"
               "uncle" "aunt" "grandma" "grandpa" "cousin"}})

@@ -434,6 +434,9 @@
    "everyone" #{"noone" "everybody" "nobody"}
    "sad" #{"unhappy" "depressed" "sick"}
    "swear" #{"fuck" "fucker" "shit" "damn"}
+   "sports" #{"atheletics" "baseball" "basketball" "football" "frisbee"
+              "gym" "gymnastics" "hockey" "lacrosse" "soccer" "softball"
+              "sports" "swimming" "swim" "tennis" "volleyball"}
    "family" #{"family" "mother" "mom" "father" "dad"
               "sister" "brother" "wife" "children" "child"
               "uncle" "aunt" "grandma" "grandpa" "cousin"}})

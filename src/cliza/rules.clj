@@ -437,6 +437,8 @@
    "sports" #{"atheletics" "baseball" "basketball" "football" "frisbee"
               "gym" "gymnastics" "hockey" "lacrosse" "soccer" "softball"
               "sports" "swimming" "swim" "tennis" "volleyball"}
+   "sex" #{"fucked" "screw" "screwing" "fucking" "rape" "raped"
+           "kiss" "kissing" "kisses" "screws" "fucks"}
    "family" #{"family" "mother" "mom" "father" "dad"
               "sister" "brother" "wife" "children" "child"
               "uncle" "aunt" "grandma" "grandpa" "cousin"}})

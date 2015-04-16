@@ -373,6 +373,14 @@
      "What makes you think of my %y?"
      "Do you want my %y?"]}
 
+   "?*x sex ?*y"
+   {:weight 10
+    :patterns
+    ["Please watch your tongue!"
+     "Please avoid such unwholesome thoughts."
+     "Please get your mind out of the gutter."
+     "Such lewdness is not appreciated."]}
+
    "?*x swear ?*y"
    {:weight 10
     :patterns

@@ -447,6 +447,8 @@
               "sports" "swimming" "swim" "tennis" "volleyball"}
    "sex" #{"fucked" "screw" "screwing" "fucking" "rape" "raped"
            "kiss" "kissing" "kisses" "screws" "fucks"}
+   "problems" #{"inhibitions" "hangups" "difficulties"
+                "anxieties" "frustrations"}
    "family" #{"family" "mother" "mom" "father" "dad"
               "sister" "brother" "wife" "children" "child"
               "uncle" "aunt" "grandma" "grandpa" "cousin"}})

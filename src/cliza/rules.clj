@@ -4,7 +4,19 @@
   {"?*x hello ?*y"
    {:weight 0
     :patterns
-    ["How do you do. Please state your problem."]}
+    ["How do you do. Please state your problem."
+     "how are you?"
+		 "how's it going?"
+     "how's it going eh?"
+     "how goes it?"
+     "what's up?"
+     "what's new?"
+     "how's everything?"
+		 "how is everything?"
+     "how do you do?"
+		 "how's it hanging?"
+     "que pasa?"
+		 "how are you doing?"]}
 
    "?*x if ?*y"
    {:weight 3

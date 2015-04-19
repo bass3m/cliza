@@ -451,6 +451,9 @@
    "glad" #{"elated" "better" "happy"}
    "feel" #{"think" "believe" "wish" "belief"}
    "want" #{"need" "desire"}
+   "computer" #{"mac" "linux" "pc" "osx"
+                "fpga" "virtex" "asic" "lenovo" "c++"
+                "python" "perl" "clojure" "javascript"}
    "everyone" #{"noone" "everybody" "nobody"}
    "sad" #{"unhappy" "depressed" "sick"}
    "swear" #{"fuck" "fucker" "shit" "damn"}

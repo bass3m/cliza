@@ -454,7 +454,7 @@
    "computer" #{"mac" "linux" "pc" "osx"
                 "fpga" "virtex" "asic" "lenovo" "c++" "lisp"
                 "python" "perl" "clojure" "javascript" "prolog"
-                "erlang"}
+                "erlang" "cobol"}
    "everyone" #{"noone" "everybody" "nobody"}
    "sad" #{"unhappy" "depressed" "sick"}
    "swear" #{"fuck" "fucker" "shit" "damn"}

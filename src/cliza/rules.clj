@@ -465,6 +465,6 @@
            "kiss" "kissing" "kisses" "screws" "fucks"}
    "problems" #{"inhibitions" "hangups" "difficulties"
                 "anxieties" "frustrations"}
-   "family" #{"family" "mother" "mom" "father" "dad"
-              "sister" "brother" "wife" "children" "child"
+   "family" #{"family" "mother" "mom" "father" "dad" "niece"
+              "sister" "brother" "wife" "children" "child" "nephew"
               "uncle" "aunt" "grandma" "grandpa" "cousin"}})

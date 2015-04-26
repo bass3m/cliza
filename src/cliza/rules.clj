@@ -454,13 +454,13 @@
    "computer" #{"mac" "linux" "pc" "osx"
                 "fpga" "virtex" "asic" "lenovo" "c++" "lisp"
                 "python" "perl" "clojure" "javascript" "prolog"
-                "erlang" "cobol" "julia"}
+                "erlang" "cobol" "julia" "fortran"}
    "everyone" #{"noone" "everybody" "nobody"}
    "sad" #{"unhappy" "depressed" "sick"}
    "swear" #{"fuck" "fucker" "shit" "damn"}
    "sports" #{"atheletics" "baseball" "basketball" "football" "frisbee"
               "gym" "gymnastics" "hockey" "lacrosse" "soccer" "softball"
-              "sports" "swimming" "swim" "tennis" "volleyball"}
+              "sports" "swimming" "swim" "tennis" "volleyball" "soccer"}
    "sex" #{"fucked" "screw" "screwing" "fucking" "rape" "raped"
            "kiss" "kissing" "kisses" "screws" "fucks"}
    "problems" #{"inhibitions" "hangups" "difficulties"

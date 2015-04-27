@@ -460,7 +460,8 @@
    "swear" #{"fuck" "fucker" "shit" "damn"}
    "sports" #{"atheletics" "baseball" "basketball" "football" "frisbee"
               "gym" "gymnastics" "hockey" "lacrosse" "soccer" "softball"
-              "sports" "swimming" "swim" "tennis" "volleyball" "soccer"}
+              "sports" "swimming" "swim" "tennis" "volleyball" "soccer"
+              "nfl" "nba"}
    "sex" #{"fucked" "screw" "screwing" "fucking" "rape" "raped"
            "kiss" "kissing" "kisses" "screws" "fucks"}
    "problems" #{"inhibitions" "hangups" "difficulties"

@@ -461,7 +461,7 @@
    "sports" #{"atheletics" "baseball" "basketball" "football" "frisbee"
               "gym" "gymnastics" "hockey" "lacrosse" "soccer" "softball"
               "sports" "swimming" "swim" "tennis" "volleyball" "nfl" "nba"
-              "cricket" "rugby" "boxing" "wrestling" "mma"}
+              "cricket" "rugby" "boxing" "wrestling" "mma" "foosball"}
    "sex" #{"fucked" "screw" "screwing" "fucking" "rape" "raped"
            "kiss" "kissing" "kisses" "screws" "fucks"}
    "problems" #{"inhibitions" "hangups" "difficulties"

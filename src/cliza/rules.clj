@@ -458,7 +458,7 @@
    "everyone" #{"noone" "everybody" "nobody"}
    "sad" #{"unhappy" "depressed" "sick"}
    "swear" #{"fuck" "fucker" "shit" "damn"}
-   "sports" #{"atheletics" "baseball" "basketball" "football" "frisbee"
+   "sports" #{"atheletics" "baseball" "basketball" "football" "frisbee" "mlb"
               "gym" "gymnastics" "hockey" "lacrosse" "soccer" "softball"
               "sports" "swimming" "swim" "tennis" "volleyball" "nfl" "nba"
               "cricket" "rugby" "boxing" "wrestling" "mma" "foosball" "futball"}

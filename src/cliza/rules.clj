@@ -452,7 +452,7 @@
    "feel" #{"think" "believe" "wish" "belief"}
    "want" #{"need" "desire"}
    "computer" #{"mac" "linux" "pc" "osx" "ubuntu" "c#" "scala"
-                "fpga" "virtex" "asic" "lenovo" "c++" "lisp"
+                "fpga" "virtex" "asic" "lenovo" "c++" "lisp" "java"
                 "python" "perl" "clojure" "javascript" "prolog"
                 "erlang" "cobol" "julia" "fortran" "pascal"}
    "everyone" #{"noone" "everybody" "nobody"}

@@ -451,7 +451,7 @@
    "glad" #{"elated" "better" "happy"}
    "feel" #{"think" "believe" "wish" "belief"}
    "want" #{"need" "desire"}
-   "computer" #{"mac" "linux" "pc" "osx" "ubuntu" "c#"
+   "computer" #{"mac" "linux" "pc" "osx" "ubuntu" "c#" "scala"
                 "fpga" "virtex" "asic" "lenovo" "c++" "lisp"
                 "python" "perl" "clojure" "javascript" "prolog"
                 "erlang" "cobol" "julia" "fortran" "pascal"}

@@ -464,7 +464,7 @@
               "cricket" "rugby" "boxing" "wrestling" "mma" "foosball" "futball"}
    "sex" #{"fucked" "screw" "screwing" "fucking" "rape" "raped"
            "kiss" "kissing" "kisses" "screws" "fucks"}
-   "problems" #{"inhibitions" "hangups" "difficulties"
+   "problems" #{"inhibitions" "hangups" "difficulties" "troubles"
                 "anxieties" "frustrations"}
    "family" #{"family" "mother" "mom" "father" "dad" "niece"
               "sister" "brother" "wife" "children" "child" "nephew"

@@ -459,7 +459,7 @@
    "sad" #{"unhappy" "depressed" "sick"}
    "swear" #{"fuck" "fucker" "shit" "damn"}
    "sports" #{"atheletics" "baseball" "basketball" "football" "frisbee" "mlb"
-              "gym" "gymnastics" "hockey" "lacrosse" "soccer" "softball"
+              "gym" "gymnastics" "hockey" "lacrosse" "soccer" "softball" "mma"
               "sports" "swimming" "swim" "tennis" "volleyball" "nfl" "nba"
               "cricket" "rugby" "boxing" "wrestling" "mma" "foosball" "futball"}
    "sex" #{"fucked" "screw" "screwing" "fucking" "rape" "raped"

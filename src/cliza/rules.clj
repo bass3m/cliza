@@ -456,12 +456,12 @@
                 "python" "perl" "clojure" "javascript" "prolog" "haskell"
                 "erlang" "cobol" "julia" "fortran" "pascal"}
    "everyone" #{"noone" "everybody" "nobody"}
-   "sad" #{"unhappy" "depressed" "sick"}
+   "sad" #{"unhappy" "depressed" "sick" "miserable"}
    "swear" #{"fuck" "fucker" "shit" "damn"}
    "sports" #{"atheletics" "baseball" "basketball" "football" "frisbee" "mlb"
               "gym" "gymnastics" "hockey" "lacrosse" "soccer" "softball" "mma"
               "sports" "swimming" "swim" "tennis" "volleyball" "nfl" "nba"
-              "cricket" "rugby" "boxing" "wrestling" "mma" "foosball" "futball"
+              "cricket" "rugby" "boxing" "wrestling" "foosball" "futball"
               "bowling" "badminton" "nhl"}
    "sex" #{"fucked" "screw" "screwing" "fucking" "rape" "raped"
            "kiss" "kissing" "kisses" "screws" "fucks"}

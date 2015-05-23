@@ -453,7 +453,7 @@
    "want" #{"need" "desire"}
    "computer" #{"mac" "linux" "pc" "osx" "ubuntu" "c#" "scala" "coffeescript"
                 "fpga" "virtex" "asic" "lenovo" "c++" "lisp" "java" "centos" "fedora"
-                "python" "perl" "clojure" "javascript" "prolog" "haskell"
+                "python" "perl" "clojure" "javascript" "prolog" "haskell" "archlinux"
                 "erlang" "cobol" "julia" "fortran" "pascal" "purescript"}
    "everyone" #{"noone" "everybody" "nobody"}
    "sad" #{"unhappy" "depressed" "sick" "miserable"}

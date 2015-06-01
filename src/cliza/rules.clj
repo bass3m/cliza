@@ -455,7 +455,7 @@
                 "fpga" "virtex" "asic" "lenovo" "c++" "lisp" "java" "centos" "fedora"
                 "centos" "python" "perl" "clojure" "javascript" "prolog" "haskell"
                 "archlinux" "erlang" "cobol" "julia" "fortran" "pascal" "purescript"
-                "redhat" "lisp" "smalltalk" "nim" "numpy" "scipy" "reactjs"}
+                "redhat" "lisp" "smalltalk" "nim" "numpy" "scipy" "reactjs" "angularjs"}
    "everyone" #{"noone" "everybody" "nobody"}
    "sad" #{"unhappy" "depressed" "sick" "miserable"}
    "swear" #{"fuck" "fucker" "shit" "damn"}

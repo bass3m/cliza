@@ -456,7 +456,8 @@
                 "centos" "python" "perl" "clojure" "javascript" "prolog" "haskell"
                 "archlinux" "erlang" "cobol" "julia" "fortran" "pascal" "purescript"
                 "redhat" "lisp" "smalltalk" "nim" "numpy" "scipy" "reactjs" "angularjs"
-                "meteor" "knockoutjs" "meteorjs" "postgres" "couchdb" "mongodb" "riak"}
+                "meteor" "knockoutjs" "meteorjs" "postgres" "couchdb" "mongodb" "riak"
+                "mariadb"}
    "everyone" #{"noone" "everybody" "nobody"}
    "sad" #{"unhappy" "depressed" "sick" "miserable"}
    "swear" #{"fuck" "fucker" "shit" "damn"}

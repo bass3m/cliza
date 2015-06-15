@@ -457,7 +457,7 @@
                 "archlinux" "erlang" "cobol" "julia" "fortran" "pascal" "purescript"
                 "redhat" "lisp" "smalltalk" "nim" "numpy" "scipy" "reactjs" "angularjs"
                 "meteor" "knockoutjs" "meteorjs" "postgres" "couchdb" "mongodb" "riak"
-                "mariadb" "sqlite" "idris" "lua" "luajit"}
+                "mariadb" "sqlite" "idris" "lua" "luajit" "rethinkdb"}
    "everyone" #{"noone" "everybody" "nobody"}
    "sad" #{"unhappy" "depressed" "sick" "miserable"}
    "swear" #{"fuck" "fucker" "shit" "damn"}

@@ -458,7 +458,7 @@
                 "redhat" "lisp" "smalltalk" "nim" "numpy" "scipy" "reactjs" "angularjs"
                 "meteor" "knockoutjs" "meteorjs" "postgres" "couchdb" "mongodb" "riak"
                 "mariadb" "sqlite" "idris" "lua" "luajit" "rethinkdb" "datomic" "mysql"
-                "ravendb"}
+                "ravendb" "typescript"}
    "everyone" #{"noone" "everybody" "nobody"}
    "sad" #{"unhappy" "depressed" "sick" "miserable"}
    "swear" #{"fuck" "fucker" "shit" "damn"}

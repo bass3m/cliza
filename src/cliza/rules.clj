@@ -458,7 +458,8 @@
                 "redhat" "lisp" "smalltalk" "nim" "numpy" "scipy" "reactjs" "angularjs"
                 "meteor" "knockoutjs" "meteorjs" "postgres" "couchdb" "mongodb" "riak"
                 "mariadb" "sqlite" "idris" "lua" "luajit" "rethinkdb" "datomic" "mysql"
-                "ravendb" "typescript" "dart" "redis" "agda" "coq" "memcachd" "pouchdb"}
+                "ravendb" "typescript" "dart" "redis" "agda" "coq" "memcachd" "pouchdb"
+                "backbonejs"}
    "everyone" #{"noone" "everybody" "nobody"}
    "sad" #{"unhappy" "depressed" "sick" "miserable"}
    "swear" #{"fuck" "fucker" "shit" "damn"}

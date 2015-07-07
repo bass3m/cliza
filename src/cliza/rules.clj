@@ -459,7 +459,8 @@
                 "meteor" "knockoutjs" "meteorjs" "postgres" "couchdb" "mongodb" "riak"
                 "mariadb" "sqlite" "idris" "lua" "luajit" "rethinkdb" "datomic" "mysql"
                 "ravendb" "typescript" "dart" "redis" "agda" "coq" "memcachd" "pouchdb"
-                "backbonejs" "golang" "scheme" "ocaml" "sml" "f#" "rust" "aws" "azure" "heroku"}
+                "backbonejs" "golang" "scheme" "ocaml" "sml" "f#" "rust" "aws" "azure" "heroku"
+                "dynamodb"}
    "everyone" #{"noone" "everybody" "nobody"}
    "sad" #{"unhappy" "depressed" "sick" "miserable"}
    "swear" #{"fuck" "fucker" "shit" "damn"}

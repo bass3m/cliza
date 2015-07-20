@@ -461,7 +461,7 @@
                 "ravendb" "typescript" "dart" "redis" "agda" "coq" "memcachd" "pouchdb"
                 "backbonejs" "golang" "scheme" "ocaml" "sml" "f#" "rust" "aws" "azure" "heroku"
                 "dynamodb" "iojs" "forth" "paxos" "hadoop" "etcd" "zookeeper" "jquery" "drupal"
-                "solr" "lucene" "coreos" "cassandradb"}
+                "solr" "lucene" "coreos" "cassandradb" "slackware"}
    "everyone" #{"noone" "everybody" "nobody"}
    "sad" #{"unhappy" "depressed" "sick" "miserable"}
    "swear" #{"fuck" "fucker" "shit" "damn"}

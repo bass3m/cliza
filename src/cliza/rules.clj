@@ -469,7 +469,7 @@
               "gym" "gymnastics" "hockey" "lacrosse" "soccer" "softball" "mma"
               "sports" "swimming" "swim" "tennis" "volleyball" "nfl" "nba"
               "cricket" "rugby" "boxing" "wrestling" "foosball" "futball"
-              "bowling" "badminton" "nhl" "skiing"}
+              "bowling" "badminton" "nhl" "skiing" "snowboarding"}
    "sex" #{"fucked" "screw" "screwing" "fucking" "rape" "raped"
            "kiss" "kissing" "kisses" "screws" "fucks"}
    "problems" #{"inhibitions" "hangups" "difficulties" "troubles"

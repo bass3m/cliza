@@ -465,7 +465,7 @@
                 "wordpress" "matlab" "mathematica"}
    "everyone" #{"noone" "everybody" "nobody"}
    "sad" #{"unhappy" "depressed" "sick" "miserable"}
-   "swear" #{"fuck" "fucker" "shit" "damn"}
+   "swear" #{"fuck" "fucker" "shit" "damn" "bastard"}
    "sports" #{"atheletics" "baseball" "basketball" "football" "frisbee" "mlb"
               "gym" "gymnastics" "hockey" "lacrosse" "soccer" "softball" "mma"
               "sports" "swimming" "swim" "tennis" "volleyball" "nfl" "nba"

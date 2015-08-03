@@ -462,7 +462,7 @@
                 "backbonejs" "golang" "scheme" "ocaml" "sml" "f#" "rust" "aws" "azure" "heroku"
                 "dynamodb" "iojs" "forth" "paxos" "hadoop" "etcd" "zookeeper" "jquery" "drupal"
                 "solr" "lucene" "coreos" "cassandradb" "slackware" "json" "yaml" "xml" "bigml"
-                "wordpress" "matlab" "mathematica" "octave" "mahout"}
+                "wordpress" "matlab" "mathematica" "octave" "mahout" "neo4j"}
    "everyone" #{"noone" "everybody" "nobody"}
    "sad" #{"unhappy" "depressed" "sick" "miserable"}
    "swear" #{"fuck" "fucker" "shit" "damn" "bastard"}

@@ -465,7 +465,7 @@
                 "wordpress" "matlab" "mathematica" "octave" "mahout" "neo4j" "mesos" "dynamodb"
                 "oozie" "elasticsearch" "karaf" "mesosphere" "unity" "ansible" "axure" "gradle"
                 "docker" "packer" "emacs" "vim" "sublimetext" "textmate" "pico" "nano"
-                "android" "symbian" "junos" "dcos" "origodb"}
+                "android" "symbian" "junos" "dcos" "origodb" "kubernetes"}
    "everyone" #{"noone" "everybody" "nobody"}
    "sad" #{"unhappy" "depressed" "sick" "miserable"}
    "swear" #{"fuck" "fucker" "shit" "damn" "bastard"}

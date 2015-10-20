@@ -460,7 +460,7 @@
                 "mariadb" "sqlite" "idris" "lua" "luajit" "rethinkdb" "datomic" "mysql"
                 "ravendb" "typescript" "dart" "redis" "agda" "coq" "memcachd" "pouchdb"
                 "backbonejs" "golang" "scheme" "ocaml" "sml" "f#" "rust" "aws" "azure" "heroku"
-                "dynamodb" "iojs" "forth" "paxos" "hadoop" "etcd" "zookeeper" "jquery" "drupal"
+                "iojs" "forth" "paxos" "hadoop" "etcd" "zookeeper" "jquery" "drupal"
                 "solr" "lucene" "coreos" "cassandradb" "slackware" "json" "yaml" "xml" "bigml"
                 "wordpress" "matlab" "mathematica" "octave" "mahout" "neo4j" "mesos" "dynamodb"
                 "oozie" "elasticsearch" "karaf" "mesosphere" "unity" "ansible" "axure" "gradle"
